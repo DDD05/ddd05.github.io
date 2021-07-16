@@ -182,3 +182,10 @@ requireComponent.keys().forEach(fileName => {
 })
 ```
 
+## 싱글 인스턴스 컴포넌트 이름
+
+...
+
+
+> 참고 <br>
+> [https://kr.vuejs.org/v2/style-guide/](https://kr.vuejs.org/v2/style-guide/)
