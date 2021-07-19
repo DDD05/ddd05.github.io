@@ -147,7 +147,7 @@ components/
 
 ## 베이스 컴포넌트 이름
 
-기본 컴포넌트에 컨벤션으로 prefix `Base`, `App`, `V`를 사용하여 구분한다. 컨벤션을 이용하여 전역 컴포넌트로 등록하여 사용가능하다.
+> 기본 컴포넌트에 컨벤션으로 prefix `Base`, `App`, `V`를 사용하여 구분한다. 컨벤션을 이용하여 전역 컴포넌트로 등록하여 사용가능하다.
 
 ### Example
 
@@ -184,8 +184,30 @@ requireComponent.keys().forEach(fileName => {
 
 ## 싱글 인스턴스 컴포넌트 이름
 
-...
+> 인스턴스가 하나만 있어야하는 구성 요소의 접두사`The`로 시작한다. 하나만 있음을 나타낸다. 
 
+- 한페이지당 한번만 사용되는 요소
+- props를 허용하지 않는 요소
+- props를 추가해야하지만 한번만 사용되는 재사용 가능한 요소
+
+### Bad
+
+```
+components/
+|- Heading.vue
+|- MySidebar.vue
+```
+
+### Good
+```
+components/
+|- TheHeading.vue
+|- TheSidebar.vue
+```
+
+## 강한 연관성을 가진 컴포넌트 이름
+
+...
 
 > 참고 <br>
 > [https://kr.vuejs.org/v2/style-guide/](https://kr.vuejs.org/v2/style-guide/)
