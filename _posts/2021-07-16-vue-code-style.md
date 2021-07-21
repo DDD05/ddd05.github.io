@@ -9,7 +9,7 @@ description: 'Vue 스타일 가이드를 해석해서 기록해둠'
 
 # 📖 들어가기
 
-Vue.js 프레임워크를 조금더 깔끔하고 제대로 사용하기 위해서 Vue API에서 제공하는 코드 스타일을 해석해서 기록하면 공부해볼 예정이다.
+Vue.js 프레임워크를 조금더 깔끔하고 제대로 사용하기 위해서 [Vue API에서 제공하는 코드 스타일](https://kr.vuejs.org/v2/style-guide/)을 해석해서 기록하면 공부해볼 예정이다.
 
 필수적으로 지켜줘야하는 것들과 매우추천, 추천, 주의 정도의 강도로 요구된다. 
 
@@ -206,6 +206,101 @@ components/
 ```
 
 ## 강한 연관성을 가진 컴포넌트 이름
+
+> 상위 구성 요소와 긴밀하게 연결된 하위 구성 요소는 상위 구성 요소 이름을 접두사로 포함해야한다.
+
+예시를통해 위말을 풀어보면.. <br>
+보통은 패키지 관리를 할땐 아래와 같은 방식으로 상위 구성 요소의 이름을 딴 디렉토리에 하위 구성요소를 중첩해서 사용할 것이다.
+
+```
+components/
+|- TodoList/
+  |- Item/
+    |- index.vue
+    |- Button.vue
+  |- index.vue
+```
+
+or
+
+```
+components/
+|- TodoList/
+  |- Item/
+    |- Button.vue
+  |- Item.vue
+|- TodoList.vue
+```
+
+하지만 이런 방법을 추천하지 않는다. <br>
+1. 비슷한 이름을 가진 파일들이 많아지며, 편집기에서 신속한 파일전환이 불편하다.
+2. 중첩된 여러 하위 디렉토리는 편집기의 사이드바의 뎁스를 늘리고 검색에 불리하다는 것이다.
+
+이러한 이유로 구셩요소의 이름에 관계를 명확하게 나타내는 방법을 추천하는데, 편집기에서는 일반적으로 파일을 알파벳 순으로 구성하므로 관련 파일도 보관하기도 편리하다.
+
+### Bad
+
+```
+component/
+|- TodoList.vue
+|- TodoItem.vue
+|- TodoButton.vue
+```
+
+```
+components/
+|- SearchSidebar.vue
+|- NavigationForSearchSidebar.vue
+```
+
+### Good
+
+```
+components/
+|- TodoList.vue
+|- TodoListItem.vue
+|- TodoListItemButton.vue
+```
+
+```
+components/
+|- SearchSidebar.vue
+|- SearchSidebarNavigation.vue
+```
+
+사실 이 부분은 취향차이가 생길 수 있다. 사용하고 있는 IDE가 얼마나 지원하는가에 따라서 가독성이나 컴포넌트를 찾는 쉬움 정도가 다르기 때문이다. 하지만 나도 같은 이유로 불편함을 느끼던차라 추천해주는 방식을 이용해서 개발에 적용해볼까한다.
+
+## 컴포넌트 이름의 단어 순서 정렬
+
+구성요소 이름은 최상위 수준 단어로 시작하고 설명 단어로 끝내야한다. 
+
+위에서 언급했던 **강한 연관성을 가진 컴포넌트 이름**과 같은 이유로 추천됩니다.
+
+### Bad
+
+```
+components/
+|- ClearSearchButton.vue
+|- ExcludeFromSearchInput.vue
+|- LaunchOnStartupCheckbox.vue
+|- RunSearchButton.vue
+|- SearchInput.vue
+|- TermsCheckbox.vue
+```
+
+### Good
+
+```
+components/
+|- SearchButtonClear.vue
+|- SearchButtonRun.vue
+|- SearchInputQuery.vue
+|- SearchInputExcludeGlob.vue
+|- SettingsCheckboxTerms.vue
+|- SettingCheckboxLaunchOnStartup.vue
+```
+
+## 셀프 클로징 컴포넌트
 
 ...
 
