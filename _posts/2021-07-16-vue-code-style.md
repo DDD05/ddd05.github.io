@@ -302,7 +302,23 @@ components/
 
 ## 셀프 클로징 컴포넌트
 
-...
+> 컨텐츠가 없는 구성 요소는 단일 파일 구성 요소, 문자열 템플릿 및 JSX에서 자체 닫아야한다. - 그러나 DOM 템플릿은 닫지 않는다.
+
+추가적으로 html 템플릿을 사용하는 경우 PascalCase도 지원하지만 kebab-case로도 사용이 가능하다. html 태그는 대소문자 구분이 없기때문에 개인적으로는 `kebab-case`를 선호한다.
+
+### Good 
+
+```html
+<!-- In sigle-file components, string template, and JSX -->
+<MyComponent/>
+```
+
+```html
+<!-- In DOM templates -->
+<my-component></my-component>
+```
+
+
 
 > 참고 <br>
 > [https://kr.vuejs.org/v2/style-guide/](https://kr.vuejs.org/v2/style-guide/)
