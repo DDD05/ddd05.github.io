@@ -309,7 +309,7 @@ components/
 ### Good 
 
 ```html
-<!-- In sigle-file components, string template, and JSX -->
+<!-- In single-file components, string template, and JSX -->
 <MyComponent/>
 ```
 
@@ -318,7 +318,41 @@ components/
 <my-component></my-component>
 ```
 
+## Prop 이름 규칙 지정(casing)
 
+> prop 이름은 선언 중에서 항상 camelCase를 사용해야한다. 또 HTML 템플릿 및 JSX에서는 kebab-case를 사용한다.
+
+### Good
+
+```js
+props: {
+  greetingText: String
+}
+```
+```html
+<WelcomeMessage greeting-text="hi" />
+```
+
+## 다중 속성 엘리먼트
+
+> 여러 속성을 가진 요소는 한줄에 하나의 속성을 가진 여러 줄로 확장되어야 한다.
+
+### Good
+
+```html
+<img
+  src="https://..."
+  alt="Vue Logo"
+>
+```
+
+## 템플릿에서 단순한 표현식
+
+> 구성 요소 템플릿에는 더 복잡한 표현식이 계산된 속성(computed) 또는 메서드(method)로 리펙터링된단순한 표현식만 포함해야한다.
+
+## 단순한 계산된 속성
+
+...
 
 > 참고 <br>
 > [https://kr.vuejs.org/v2/style-guide/](https://kr.vuejs.org/v2/style-guide/)
